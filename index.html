@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="Hover-master/Hover-master/css/hover-min.css">
+<style>
+
+
+
+
+	/* Common style */
+	.grid figure {
+		position: relative;
+		/*float: left;*/
+		overflow: hidden;
+
+		/*background: #fff;*/
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.grid figure img {
+		position: relative;
+		display: block;
+		min-height: 100%;
+		max-width: 100%;
+		border-radius: 4px;
+		/*opacity: 0.8;*/
+	}
+
+	.grid figure figcaption {
+		padding: 2em;
+		color: #fff;
+		text-transform: capitalize;
+		font-size: 1.25em;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	.grid figure figcaption::before,
+	.grid figure figcaption::after {
+		pointer-events: none;
+	}
+
+	.grid figure figcaption,
+	.grid figure figcaption > a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	/* Anchor will cover the whole item by default */
+	/* For some effects it will show as a button */
+	.grid figure figcaption > a {
+		z-index: 1000;
+		text-indent: 200%;
+		white-space: nowrap;
+		font-size: 0;
+		opacity: 0;
+	}
+
+	.grid figure h2 {
+		word-spacing: -0.15em;
+		font-weight: 300;
+	}
+
+	.grid figure h2 span {
+		font-weight: 800;
+	}
+
+	.grid figure h2,
+	.grid figure p {
+		margin: 0;
+	}
+
+	.grid figure p {
+		letter-spacing: 1px;
+		font-size: 68.5%;
+	}
+
+	/* Individual effects */
+
+	/*---------------*/
+	/***** Lily *****/
+	/*---------------*/
+
+	figure.effect-lily img {
+		max-width: none;
+		width: -webkit-calc(100% + 50px);
+		width: calc(100% + 50px);
+		opacity: 0.7;
+		-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+		transition: opacity 0.35s, transform 0.35s;
+		-webkit-transform: translate3d(-40px,0, 0);
+		transform: translate3d(-40px,0,0);
+	}
+
+	figure.effect-lily figcaption {
+		text-align: left;
+	}
+
+	figure.effect-lily figcaption > div {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 2em;
+		width: 100%;
+		height: 50%;
+	}
+
+	figure.effect-lily h2,
+	figure.effect-lily p {
+		-webkit-transform: translate3d(0,40px,0);
+		transform: translate3d(0,40px,0);
+	}
+
+	figure.effect-lily h2 {
+		-webkit-transition: -webkit-transform 0.35s;
+		transition: transform 0.35s;
+	}
+
+	figure.effect-lily p {
+		/*color: rgba(255,255,255,0.8);*/
+		opacity: 0;
+		-webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
+		transition: opacity 0.2s, transform 0.35s;
+	}
+
+	figure.effect-lily:hover img,
+	figure.effect-lily:hover p {
+		opacity: 1;
+	}
+
+	figure.effect-lily:hover img,
+	figure.effect-lily:hover h2,
+	figure.effect-lily:hover p {
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	figure.effect-lily:hover p {
+		-webkit-transition-delay: 0.05s;
+		transition-delay: 0.05s;
+		-webkit-transition-duration: 0.35s;
+		transition-duration: 0.35s;
+	}
+
+	/*---------------*/
+	/***** Sadie *****/
+	/*---------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+	figure.effect-roxy img {
+		max-width: none;
+		width: -webkit-calc(100% + 60px);
+		width: calc(100% + 60px);
+		-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+		transition: opacity 0.35s, transform 0.35s;
+		-webkit-transform: translate3d(-50px,0,0);
+		transform: translate3d(-50px,0,0);
+	}
+
+
+	figure.effect-zoe figcaption {
+		top: auto;
+		bottom: 0;
+		padding: 8px;
+		height: 2.75em;
+		border-radius: 4px;
+		background: rgba(0, 0, 0, 0.1);
+		opacity: 0.8;
+		/*color: #444243;*/
+		color: white;
+		-webkit-transition: -webkit-transform 0.35s;
+		transition: transform 0.35s;
+		-webkit-transform: translate3d(0,100%,0);
+		transform: translate3d(0,100%,0);
+	}
+
+	figure.effect-zoe h2 {
+		float: left;
+	}
+
+
+
+	figure.effect-zoe p.description {
+		position: absolute;
+		bottom: 8em;
+		padding: 2em;
+		color: #fff;
+		text-transform: none;
+		font-size: 90%;
+		opacity: 0;
+		-webkit-transition: opacity 0.35s;
+		transition: opacity 0.35s;
+		-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+	}
+
+	figure.effect-zoe h2,
+	figure.effect-zoe p.icon-links a {
+		-webkit-transition: -webkit-transform 0.35s;
+		transition: transform 0.35s;
+		-webkit-transform: translate3d(0,200%,0);
+		transform: translate3d(0,200%,0);
+	}
+
+	figure.effect-zoe p.icon-links a span::before {
+		display: inline-block;
+		padding: 8px 10px;
+		font-family: 'product sance';
+		speak: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+
+
+	figure.effect-zoe h2 {
+		display: inline-block;
+	}
+
+	figure.effect-zoe:hover p.description {
+		opacity: 1;
+	}
+
+	figure.effect-zoe:hover figcaption,
+	figure.effect-zoe:hover h2,
+	figure.effect-zoe:hover p.icon-links a {
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	figure.effect-zoe:hover h2 {
+		-webkit-transition-delay: 0.05s;
+		transition-delay: 0.05s;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+		-webkit-transition-delay: 0.1s;
+		transition-delay: 0.1s;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+		-webkit-transition-delay: 0.15s;
+		transition-delay: 0.15s;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:first-child {
+		-webkit-transition-delay: 0.2s;
+		transition-delay: 0.2s;
+	}
+
+
+
+	dl, h1, h2, h3, h4, h5, h6, ol, p, pre, ul{
+		margin-top: 7px;
+	}
+
+
+
+</style>
+
+</head>
+<body>
+    <!--section start here-->
+
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img src="banner.png" width="100%">
+		</div>
+		<div class="col-md-3 col-sm-6" data-toggle="modal" data-target="#myModal">
+			<div class="grid">
+				<figure class="effect-zoe " data-target="#myModal">
+					<img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/4:3/w_2000,h_1500,c_limit/Transpo_G70_TA-518126.jpg" width="100%" alt="img01" data-toggle="modal" data-target="#myModal_1" onclick="hide()">
+					<figcaption>
+						<p>Lorem ipsum dolor sit amet, consectetur </p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6" data-toggle="modal" data-target="#myModal">
+			<div class="grid">
+				<figure class="effect-zoe " data-target="#myModal">
+					<img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/4:3/w_2000,h_1500,c_limit/Transpo_G70_TA-518126.jpg" width="100%" alt="img01" data-toggle="modal" data-target="#myModal_1" onclick="hide()">
+					<figcaption>
+						<p>Lorem ipsum dolor sit amet, consectetur </p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6" data-toggle="modal" data-target="#myModal">
+			<div class="grid">
+				<figure class="effect-zoe " data-target="#myModal">
+					<img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/4:3/w_2000,h_1500,c_limit/Transpo_G70_TA-518126.jpg" width="100%" alt="img01" data-toggle="modal" data-target="#myModal_1" onclick="hide()">
+					<figcaption>
+						<p>Lorem ipsum dolor sit amet, consectetur </p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6" data-toggle="modal" data-target="#myModal">
+			<div class="grid">
+				<figure class="effect-zoe " data-target="#myModal">
+					<img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/4:3/w_2000,h_1500,c_limit/Transpo_G70_TA-518126.jpg" width="100%" alt="img01" data-toggle="modal" data-target="#myModal_1" onclick="hide()">
+					<figcaption>
+						<p>Lorem ipsum dolor sit amet, consectetur </p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<!--	<div style="margin-top: 5%">-->
+<!--		<img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/4:3/w_2000,h_1500,c_limit/Transpo_G70_TA-518126.jpg" width="100%">-->
+<!--	</div>-->
+
+
+	<!-- Modal -->
+
+
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style="border: 0">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="container">
+						<div class="modal-body col-md-6" >
+							<div>
+								<img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/4:3/w_2000,h_1500,c_limit/Transpo_G70_TA-518126.jpg" width="100%">
+							</div>
+							<div class="col-md-10" style="padding: 0;margin-top: 15px">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, blanditiis consequuntur dolore enim esse id ipsum nulla omnis,</p>
+								<p>File Type:EPS</p>
+							</div>
+							<div class="col-md-2" style="margin-top: 15px">
+								<button style="background-color: black;color: white;border: 0;padding: 6px">Download</button>
+							</div>
+						</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+</body>
+</html>
